@@ -28,19 +28,40 @@
 
             #region(Q3) Calling a method with no parameters
 
-            PrintWelcomeMessage();
+            //PrintWelcomeMessage();
 
             #endregion
 
             #region (Q4) Calling a method with a string parameter
 
-            Console.WriteLine("Enter the book title: ");
-            string? Title= Console.ReadLine();
+            //Console.WriteLine("Enter the book title: ");
+            //string? Title= Console.ReadLine();
 
-            PrintBookTitle(Title);
+            //PrintBookTitle(Title);
 
             #endregion
 
+            #region(Q5) Calling AddBounsPages method to see if Pages value changed or not (Passing by value => Value type)
+            bool flag = false;
+            int Pages = 0;
+            do
+            {
+                Console.WriteLine("Enter the number of pages: ");
+                flag=int.TryParse(Console.ReadLine(), out Pages);
+
+            }while (!flag);
+            
+            Console.WriteLine($"Pages: {Pages}");
+            AddBonusPages(Pages);
+            Console.WriteLine($"pages afterward: {Pages}");
+
+            /*
+             * The original Pages variable doesn't change because int is a value type
+             * and the method receives a copy of the value (passed by value).
+             * The copy becomes 450 inside the method, but the original remains 400.
+             */
+
+            #endregion
 
 
 
@@ -67,6 +88,18 @@
         {
             Console.WriteLine("Book title:" + title);
         }
+
+        //Q5
+        /// <summary>
+        /// Adds 50 bonus pages to the given number of pages.
+        /// </summary>
+        /// <param name="pages">The number of pages to add the bonus to.</param>
+        static void AddBonusPages(int pages)
+        {
+            pages += 50;
+
+        }
+
 
 
     }
