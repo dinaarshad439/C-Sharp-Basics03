@@ -47,9 +47,9 @@
             //do
             //{
             //    Console.WriteLine("Enter the number of pages: ");
-            //    flag=int.TryParse(Console.ReadLine(), out Pages);
+            //    flag = int.TryParse(Console.ReadLine(), out Pages);
 
-            //}while (!flag);
+            //} while (!flag);
 
             //Console.WriteLine($"Pages: {Pages}");
             //AddBonusPages(Pages);
@@ -65,9 +65,9 @@
 
             #region (Q6) Calling ApplyDiscount method to see if value index zero changed or not (Passing by value => Reference type)
 
-            double[] prices = { 25.5, 40.0 };
-            ApplyDiscount(prices);
-            Console.WriteLine(prices[0]);
+            //double[] prices = { 25.5, 40.0 };
+            //ApplyDiscount(prices);
+            //Console.WriteLine(prices[0]);
 
             /*
             * The array is a reference type, so the method receives a copy of the reference
@@ -77,6 +77,27 @@
 
             #endregion
 
+            #region (Q7) Calling AddBounsPagesByRef method to see if Pages value changed or not (Passing by Ref => Value type)
+
+            bool flag = false;
+            int Pages = 0;
+            do
+            {
+                Console.WriteLine("Enter the number of pages: ");
+                flag = int.TryParse(Console.ReadLine(), out Pages);
+
+            } while (!flag);
+
+            Console.WriteLine($"Pages: {Pages}");
+            AddBonusPagesByRef(ref Pages);
+            Console.WriteLine($"pages afterward: {Pages}");
+
+            /*
+             * The value of Pages changed because it was passed by reference.
+             * The method directly modified the original variable, so its value became 450.
+             */
+
+            #endregion
 
 
 
@@ -121,6 +142,16 @@
         static void ApplyDiscount(double[] prices)
         {
             prices[0] -= 5;
+        }
+
+        //Q7
+        /// <summary>
+        /// Adds 50 bonus pages to the original number of pages.
+        /// </summary>
+        /// <param name="pages">The number of pages passed by reference.</param>
+        static void AddBonusPagesByRef(ref int pages)
+        {
+            pages += 50;
         }
 
 
