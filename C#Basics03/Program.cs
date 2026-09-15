@@ -79,18 +79,18 @@
 
             #region (Q7) Calling AddBounsPagesByRef method to see if Pages value changed or not (Passing by Ref => Value type)
 
-            bool flag = false;
-            int Pages = 0;
-            do
-            {
-                Console.WriteLine("Enter the number of pages: ");
-                flag = int.TryParse(Console.ReadLine(), out Pages);
+            //bool flag = false;
+            //int Pages = 0;
+            //do
+            //{
+            //    Console.WriteLine("Enter the number of pages: ");
+            //    flag = int.TryParse(Console.ReadLine(), out Pages);
 
-            } while (!flag);
+            //} while (!flag);
 
-            Console.WriteLine($"Pages: {Pages}");
-            AddBonusPagesByRef(ref Pages);
-            Console.WriteLine($"pages afterward: {Pages}");
+            //Console.WriteLine($"Pages: {Pages}");
+            //AddBonusPagesByRef(ref Pages);
+            //Console.WriteLine($"pages afterward: {Pages}");
 
             /*
              * The value of Pages changed because it was passed by reference.
@@ -99,6 +99,13 @@
 
             #endregion
 
+            #region (Q8) Calling ReplaceArray method to see if it replace array prices1 with array prices or not (Passing by Ref => Reference type)
+
+            double[] Prices1 = { 25.5, 40.0 };
+            ReplaceArray(ref Prices1);
+            Console.WriteLine($"Prices lenght afterward: {Prices1.Length}");
+
+            #endregion
 
 
 
@@ -153,6 +160,18 @@
         {
             pages += 50;
         }
+
+        //Q8
+        /// <summary>
+        /// Replaces the original price array with a new array of prices.
+        /// </summary>
+        /// <param name="prices">A reference to the price array to be replaced.</param>
+        static void ReplaceArray(ref double[] prices)
+        {
+            prices = new double[] { 10.0, 12.5, 15.0 };
+
+        }
+
 
 
 
