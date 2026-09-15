@@ -122,33 +122,42 @@
 
             #region (Q10) Calling the method with and without the optional parameter
 
-            Console.WriteLine("Enter title of the book:");
-            string? Title = Console.ReadLine();
+            //Console.WriteLine("Enter title of the book:");
+            //string? Title = Console.ReadLine();
 
-            PrintBookInfo(Title ?? "Unknown");
-            Console.WriteLine("------------------------------------------");
+            //PrintBookInfo(Title ?? "Unknown");
+            //Console.WriteLine("------------------------------------------");
 
-            bool flag = false;
-            int Pages = 0;
-            do
-            {
-                Console.WriteLine("Enter number of Pages:");
-                flag = int.TryParse(Console.ReadLine(), out Pages);
+            //bool flag = false;
+            //int Pages = 0;
+            //do
+            //{
+            //    Console.WriteLine("Enter number of Pages:");
+            //    flag = int.TryParse(Console.ReadLine(), out Pages);
 
-            } while (!flag);
+            //} while (!flag);
 
 
-            PrintBookInfo(Title ?? "Unknown", Pages);
+            //PrintBookInfo(Title ?? "Unknown", Pages);
 
             #endregion
 
             #region (Q11) Named parameters allow arguments to be passed in a different order.
 
 
-            //---------------Named Parameter--------------
-            PrintBookInfo(pages: Pages, title: Title ?? "Unknown");
+            ////---------------Named Parameter--------------
+            //PrintBookInfo(pages: Pages, title: Title ?? "Unknown");
 
             #endregion
+
+            #region (Q12) Using params to pass multiple book titles
+
+
+            PrintAllTitles("Clean Code", "Refactoring", "Clean Architecture");
+
+
+            #endregion
+
 
 
         }
@@ -246,6 +255,20 @@
             Console.WriteLine($" Title of Book: {title}, Number of pages: {pages}");
         }
 
+        //Q12
+        /// <summary>
+        /// Prints all book titles provided to the method.
+        /// </summary>
+        /// <param name="titles">A variable number of book titles.</param>
+        static void PrintAllTitles(params string?[] titles)
+        {
+            for (int i = 0; i < titles.Length; i++)
+            {
+                Console.WriteLine(titles[i]);
+            }
+
+
+        }
 
 
     }
