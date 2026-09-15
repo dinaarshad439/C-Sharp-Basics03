@@ -32,6 +32,17 @@
 
             #endregion
 
+            #region (Q4) Calling a method with a string parameter
+
+            Console.WriteLine("Enter the book title: ");
+            string? Title= Console.ReadLine();
+
+            PrintBookTitle(Title);
+
+            #endregion
+
+
+
 
 
 
@@ -45,6 +56,16 @@
         static void PrintWelcomeMessage()
         {
             Console.WriteLine("Welcome to the Library!");
+        }
+
+        //Q4
+        /// <summary>
+        /// Prints the title of a book to the console.
+        /// </summary>
+        /// <param name="title">The title of the book.</param>
+        static void PrintBookTitle(string? title)
+        {
+            Console.WriteLine("Book title:" + title);
         }
 
 
