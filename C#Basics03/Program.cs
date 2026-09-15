@@ -15,14 +15,20 @@
 
             #region (Q2) Accessing an element in a 2D array
 
-            int[,] ShelfCopies =
-            {
-               { 3, 5 },
-               { 1, 4 }
-            };
+            //int[,] ShelfCopies =
+            //{
+            //   { 3, 5 },
+            //   { 1, 4 }
+            //};
 
-            Console.WriteLine($"Number of copies : {ShelfCopies[1, 0]}");
+            //Console.WriteLine($"Number of copies : {ShelfCopies[1, 0]}");
 
+
+            #endregion
+
+            #region(Q3) Calling a method with no parameters
+
+            PrintWelcomeMessage();
 
             #endregion
 
@@ -30,6 +36,15 @@
 
 
 
+        }
+
+        //Q3
+        /// <summary>
+        /// this method print welcome message only
+        /// </summary>
+        static void PrintWelcomeMessage()
+        {
+            Console.WriteLine("Welcome to the Library!");
         }
 
 
