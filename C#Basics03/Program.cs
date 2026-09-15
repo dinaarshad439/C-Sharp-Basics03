@@ -109,17 +109,38 @@
 
             #region (Q9) Using out parameter to return the price if the book is found
 
-            string Title = "Clean Code";
-            double price;
+            //string Title = "Clean Code";
+            //double price;
 
-            if (TryGetPrice(Title, out price))
-            {
-                Console.WriteLine($"Price: {price}");
-            }
+            //if (TryGetPrice(Title, out price))
+            //{
+            //    Console.WriteLine($"Price: {price}");
+            //}
 
 
             #endregion
 
+            #region (Q10) Calling the method with and without the optional parameter
+
+            Console.WriteLine("Enter title of the book:");
+            string? Title = Console.ReadLine();
+
+            PrintBookInfo(Title ?? "Unknown");
+            Console.WriteLine("------------------------------------------");
+
+            bool flag = false;
+            int Pages = 0;
+            do
+            {
+                Console.WriteLine("Enter number of Pages:");
+                flag = int.TryParse(Console.ReadLine(), out Pages);
+
+            } while (!flag);
+
+
+            PrintBookInfo(Title ?? "Unknown", Pages);
+
+            #endregion
 
         }
 
@@ -205,6 +226,16 @@
             }
         }
 
+        //Q10
+        /// <summary>
+        /// Prints the title and number of pages of a book.
+        /// </summary>
+        /// <param name="title">The title of the book.</param>
+        /// <param name="pages">The number of pages in the book. Defaults to 300.</param>
+        static void PrintBookInfo(string title, int pages = 300)
+        {
+            Console.WriteLine($" Title of Book: {title}, Number of pages: {pages}");
+        }
 
 
 
