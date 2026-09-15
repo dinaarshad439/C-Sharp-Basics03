@@ -42,18 +42,18 @@
             #endregion
 
             #region(Q5) Calling AddBounsPages method to see if Pages value changed or not (Passing by value => Value type)
-            bool flag = false;
-            int Pages = 0;
-            do
-            {
-                Console.WriteLine("Enter the number of pages: ");
-                flag=int.TryParse(Console.ReadLine(), out Pages);
+            //bool flag = false;
+            //int Pages = 0;
+            //do
+            //{
+            //    Console.WriteLine("Enter the number of pages: ");
+            //    flag=int.TryParse(Console.ReadLine(), out Pages);
 
-            }while (!flag);
-            
-            Console.WriteLine($"Pages: {Pages}");
-            AddBonusPages(Pages);
-            Console.WriteLine($"pages afterward: {Pages}");
+            //}while (!flag);
+
+            //Console.WriteLine($"Pages: {Pages}");
+            //AddBonusPages(Pages);
+            //Console.WriteLine($"pages afterward: {Pages}");
 
             /*
              * The original Pages variable doesn't change because int is a value type
@@ -63,6 +63,19 @@
 
             #endregion
 
+            #region (Q6) Calling ApplyDiscount method to see if value index zero changed or not (Passing by value => Reference type)
+
+            double[] prices = { 25.5, 40.0 };
+            ApplyDiscount(prices);
+            Console.WriteLine(prices[0]);
+
+            /*
+            * The array is a reference type, so the method receives a copy of the reference
+            * that points to the same array.
+            * Therefore, changing prices[0] inside the method changes the original array.
+            */
+
+            #endregion
 
 
 
@@ -99,6 +112,17 @@
             pages += 50;
 
         }
+
+        //Q6
+        /// <summary>
+        /// Applies a 5-unit discount to the first price in the array.
+        /// </summary>
+        /// <param name="prices">An array containing the prices.</param>
+        static void ApplyDiscount(double[] prices)
+        {
+            prices[0] -= 5;
+        }
+
 
 
 
