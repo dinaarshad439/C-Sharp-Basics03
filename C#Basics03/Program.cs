@@ -101,12 +101,24 @@
 
             #region (Q8) Calling ReplaceArray method to see if it replace array prices1 with array prices or not (Passing by Ref => Reference type)
 
-            double[] Prices1 = { 25.5, 40.0 };
-            ReplaceArray(ref Prices1);
-            Console.WriteLine($"Prices lenght afterward: {Prices1.Length}");
+            //double[] Prices1 = { 25.5, 40.0 };
+            //ReplaceArray(ref Prices1);
+            //Console.WriteLine($"Prices lenght afterward: {Prices1.Length}");
 
             #endregion
 
+            #region (Q9) Using out parameter to return the price if the book is found
+
+            string Title = "Clean Code";
+            double price;
+
+            if (TryGetPrice(Title, out price))
+            {
+                Console.WriteLine($"Price: {price}");
+            }
+
+
+            #endregion
 
 
         }
@@ -172,6 +184,26 @@
 
         }
 
+        //Q9
+        /// <summary>
+        /// Tries to find the price of a book by its title.
+        /// </summary>
+        /// <param name="title">The title of the book.</param>
+        /// <param name="price">The price of the book if it is found; otherwise, 0.</param>
+        /// <returns>True if the book is found; otherwise, false.</returns>
+        static bool TryGetPrice(string title, out double price)
+        {
+            if (title == "Clean Code")
+            {
+                price = 25.5;
+                return true;
+            }
+            else
+            {
+                price = 0;
+                return false;
+            }
+        }
 
 
 
